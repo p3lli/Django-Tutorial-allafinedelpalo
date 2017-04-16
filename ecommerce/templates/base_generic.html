@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  {% block title %}<title>Allafinedelpalo shopping</title>{% endblock %}
+  <meta charset="utf-8">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <h1>Allafinedelpalo Shopping</h1>
+  <a href="{% url 'index' %}">Home</a> <a href="{% url 'products' %}">Catalogo</a> <a href="{% url 'contacts' %}">Contatti</a>
+</head>
+
+<body>
+      <div>
+      {% block content %}{% endblock %}
+      </div>
+</body>
+</html>

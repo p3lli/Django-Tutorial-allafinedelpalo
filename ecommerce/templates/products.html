@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h2>Catalogo</h2>
+
+<ul>
+{% for product in object_list %}
+    <li><a href="{% url 'prodotto_details' prodotto_id=product.id %}">{{ product.nome }}</a> - {{ product.prezzo }} €</li>
+{% empty %}
+    <li>Nessun prodotto in catologo, ci dispiace.</li>
+{% endfor %}
+</ul>
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h2>{{ response.nome }}</h2>
+
+<ul>
+<li>Dettagli: {{ response.dettagli|default_if_none:'' }}</li>
+<li>Prezzo: {{ response.prezzo }} €</li>
+<li>Casa produttrice: {{ response.casa.nome }}</li>
+<li>Dimensione: {{ response.dimensione }}</li>
+<li>Spedizione gratuita: {{ response.spedizione_gratuita }}</li>
+</ul>
+
+{% endblock %}

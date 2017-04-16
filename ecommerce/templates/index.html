@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+  <p>Benvenuto nello shopping di  <em>Allafinedelpalo</em>.</p>
+
+<h2>Case produttrici</h2>
+
+  <ul>
+    {% for casa in case_produttrici %}
+      <li>{{ casa }}</li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
