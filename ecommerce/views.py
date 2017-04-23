@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
+from django.contrib.auth.decorators import login_required
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.forms import ModelForm
@@ -42,6 +43,7 @@ class ProdottoListView(ListView):
         return context
 
 @csrf_exempt
+@login_required
 def prodotto_create(request, template_name='product_form.html'):
     form = ProdottoForm(request.POST or None)
     if form.is_valid():
@@ -50,6 +52,7 @@ def prodotto_create(request, template_name='product_form.html'):
     return render(request, template_name, {'form':form})
 
 @csrf_exempt
+@login_required
 def prodotto_update(request, prodotto_id, template_name='product_form.html'):
     prodotto = get_object_or_404(Prodotto, pk=prodotto_id)
     form = ProdottoForm(request.POST or None, instance=prodotto)
@@ -59,6 +62,7 @@ def prodotto_update(request, prodotto_id, template_name='product_form.html'):
     return render(request, template_name, {'form':form})
 
 @csrf_exempt
+@login_required
 def prodotto_delete(request, prodotto_id, template_name='product_confirm_delete.html'):
     prodotto = get_object_or_404(Prodotto, pk=prodotto_id)
     if request.method=='POST':

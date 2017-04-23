@@ -6,7 +6,11 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <h1>Allafinedelpalo Shopping</h1>
-  <a href="{% url 'index' %}">Home</a> <a href="{% url 'products' %}">Catalogo</a> <a href="{% url 'contacts' %}">Contatti</a>
+  <a href="{% url 'index' %}">Home</a>
+  {% if request.user.is_authenticated %}<a href="{% url 'logout' %}">Logout</a>
+  {% else %}<a href="{% url 'login' %}">Login</a>
+  {% endif %}
+  <a href="{% url 'products' %}">Catalogo</a> <a href="{% url 'contacts' %}">Contatti</a>
 </head>
 
 <body>

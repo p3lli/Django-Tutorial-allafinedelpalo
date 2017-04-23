@@ -17,8 +17,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 import ecommerce
 from ecommerce.views import ProdottoListView
+from accounts.views import login_view, register_view, logout_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^ecommerce/', include('ecommerce.urls')),
+    url(r'^login/', login_view, name='login'),
+    url(r'^register/', register_view, name='register'),
+    url(r'^logout/', logout_view, name='logout'),
+    url(r'^', include('ecommerce.urls')),
 ]

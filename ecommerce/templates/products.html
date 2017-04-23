@@ -7,12 +7,15 @@
 <ul>
 {% for prodotto in object_list %}
     <li><a href="{% url 'prodotto_details' prodotto_id=prodotto.id %}">{{ prodotto.nome }}</a> - {{ prodotto.prezzo }} €
-    <a href="{% url 'prodotto_edit' prodotto.id %}">Modifica</a> <a href="{% url 'prodotto_delete' prodotto.id %}">Elimina</a></li>
+    {% if request.user.is_authenticated %}
+      <a href="{% url 'prodotto_edit' prodotto.id %}">Modifica</a> <a href="{% url 'prodotto_delete' prodotto.id %}">Elimina</a></li>
+    {% endif %}
 {% empty %}
     <li>Nessun prodotto in catologo, ci dispiace.</li>
 {% endfor %}
 </ul>
-<a href="{% url 'prodotto_new' %}">Aggiungi nuovo Prodotto</a>
-
+{% if request.user.is_authenticated %}
+  <a href="{% url 'prodotto_new' %}">Aggiungi nuovo Prodotto</a>
+{% endif %}
 
 {% endblock %}
