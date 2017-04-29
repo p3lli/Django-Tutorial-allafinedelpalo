@@ -5,14 +5,14 @@
 <h2>Catalogo</h2>
 
 <ul>
-{% for prodotto in object_list %}
-    <li><a href="{% url 'prodotto_details' prodotto_id=prodotto.id %}">{{ prodotto.nome }}</a> - {{ prodotto.prezzo }} €
-    <a href="{% url 'prodotto_edit' prodotto.id %}">Modifica</a> <a href="{% url 'prodotto_delete' prodotto.id %}">Elimina</a></li>
+{% for product in object_list %}
+    <li><a href="{% url 'product_show' product_id=product.id %}">{{ product.nome }}</a> - {{ product.prezzo }} €
+    <a href="{% url 'product_edit' product.id %}">Modifica</a> <a href="{% url 'product_delete' product.id %}">Elimina</a></li>
 {% empty %}
     <li>Nessun prodotto in catologo, ci dispiace.</li>
 {% endfor %}
 </ul>
-<a href="{% url 'prodotto_new' %}">Aggiungi nuovo Prodotto</a>
+<a href="{% url 'product_new' %}">Aggiungi nuovo Prodotto</a>
 
 
 {% endblock %}

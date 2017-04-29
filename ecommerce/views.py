@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
 from django.forms import ModelForm
 from ecommerce.models import Casa, Prodotto
 
@@ -20,48 +19,48 @@ def contacts(request):
         context={},
     )
 
-def prodotto_show(request, prodotto_id):
-    prodotto = Prodotto.objects.get(pk=prodotto_id)
+def product_show(request, product_id):
+    prodotto = Prodotto.objects.get(pk=product_id)
     context = {
         'response': prodotto
     }
     return render(request, 'detail.html', context)
 
-class ProdottoForm(ModelForm):
+class ProductForm(ModelForm):
     class Meta:
         model = Prodotto
         fields = ['nome', 'dettagli', 'prezzo', 'casa']
 
-class ProdottoListView(ListView):
+class ProductListView(ListView):
 
     model = Prodotto
     template_name = 'products.html'
 
     def get_context_data(self, **kwargs):
-        context = super(ProdottoListView, self).get_context_data(**kwargs)
+        context = super(ProductListView, self).get_context_data(**kwargs)
         return context
 
 @csrf_exempt
-def prodotto_create(request, template_name='product_form.html'):
-    form = ProdottoForm(request.POST or None)
+def product_create(request, template_name='product_form.html'):
+    form = ProductForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('products')
     return render(request, template_name, {'form':form})
 
 @csrf_exempt
-def prodotto_update(request, prodotto_id, template_name='product_form.html'):
-    prodotto = get_object_or_404(Prodotto, pk=prodotto_id)
-    form = ProdottoForm(request.POST or None, instance=prodotto)
+def product_update(request, product_id, template_name='product_form.html'):
+    product = get_object_or_404(Prodotto, pk=product_id)
+    form = ProductForm(request.POST or None, instance=product)
     if form.is_valid():
         form.save()
         return redirect('products')
     return render(request, template_name, {'form':form})
 
 @csrf_exempt
-def prodotto_delete(request, prodotto_id, template_name='product_confirm_delete.html'):
-    prodotto = get_object_or_404(Prodotto, pk=prodotto_id)
+def product_delete(request, product_id, template_name='product_confirm_delete.html'):
+    product = get_object_or_404(Prodotto, pk=product_id)
     if request.method=='POST':
-        prodotto.delete()
+        product.delete()
         return redirect('products')
-    return render(request, template_name, {'object':prodotto})
+    return render(request, template_name, {'object':product})
