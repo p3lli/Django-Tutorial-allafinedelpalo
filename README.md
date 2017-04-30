@@ -37,7 +37,7 @@ Introduzione: http://www.allafinedelpalo.it/python-django-introduzione/
 
 Parte 1: http://www.allafinedelpalo.it/python-django-1-settings-url-modello/
 
-Parte 2: coming soon...
+Parte 2: http://www.allafinedelpalo.it/python-django-2-view-e-template
 
 Parte 3: coming soon...
 
