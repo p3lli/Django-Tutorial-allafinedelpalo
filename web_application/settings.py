@@ -26,7 +26,7 @@ SECRET_KEY = secret.SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False
 
 ALLOWED_HOSTS = []
 
@@ -126,3 +126,5 @@ MEDIA_URL = '/media/'
 
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
+
+LOGIN_URL = '/login/'

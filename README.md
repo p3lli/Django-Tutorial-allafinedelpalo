@@ -30,6 +30,11 @@ Prodotto.objects.create(nome='SNES', prezzo=249.99, dimensione='M', casa=nintend
 Prodotto.objects.create(nome='PSP', prezzo=170.00, dimensione='P', casa=sony[0])
 Prodotto.objects.create(nome='PlayStation', prezzo=349.99, dimensione='M', casa=sony[0])
 ```
+4) per creare un superuser
+
+```
+python manage.py createsuperuser
+```
 
 ## Articoli di riferimento
 
