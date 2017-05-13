@@ -46,5 +46,5 @@ class UserRegisterForm(forms.ModelForm):
             raise forms.ValidationError('Sono stati inseriti due indirizzi e-mail differenti')
         email_qs = User.objects.filter(email=email)
         if email_qs.exists():
-            raise forms.ValidationError('Indirizzo e-mail già utilizzato')
+            raise forms.ValidationError('Indirizzo e-mail utilizzato')
         return super(UserRegisterForm, self).clean(*args, **kwargs)
