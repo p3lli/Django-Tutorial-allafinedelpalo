@@ -30,6 +30,11 @@ Prodotto.objects.create(nome='SNES', prezzo=249.99, dimensione='M', casa=nintend
 Prodotto.objects.create(nome='PSP', prezzo=170.00, dimensione='P', casa=sony[0])
 Prodotto.objects.create(nome='PlayStation', prezzo=349.99, dimensione='M', casa=sony[0])
 ```
+4) per creare un superuser
+
+```
+python manage.py createsuperuser
+```
 
 ## Articoli di riferimento
 
@@ -37,10 +42,12 @@ Introduzione: http://www.allafinedelpalo.it/python-django-introduzione/
 
 Parte 1: http://www.allafinedelpalo.it/python-django-1-settings-url-modello/
 
-Parte 2: http://www.allafinedelpalo.it/python-django-2-view-e-template
+Parte 2: http://www.allafinedelpalo.it/python-django-2-view-e-template/
 
-Parte 3: coming soon...
+Parte 3: http://www.allafinedelpalo.it/python-django-3-amministrazione-e-gestione-utentii/
 
 Parte 4: coming soon...
+
+Parte 5: coming soon...
 
 
