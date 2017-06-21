@@ -6,6 +6,9 @@ from django.contrib.auth import (
     logout,
 )
 from .forms import UserLoginForm, UserRegisterForm
+import logging
+
+logger = logging.getLogger('textlogger')
 
 def login_view(request):
     next = request.GET.get('next')
@@ -15,6 +18,7 @@ def login_view(request):
         username = form.cleaned_data.get('username');
         password = form.cleaned_data.get('password');
         user = authenticate(username=username, password=password)
+        logger.info(''.join([username, ' logged in']))
         login(request, user)
         if next:
             return redirect(next)

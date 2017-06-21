@@ -4,6 +4,9 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic.list import ListView
 from django.forms import ModelForm
 from ecommerce.models import Casa, Prodotto
+import logging
+
+logger = logging.getLogger('textlogger')
 
 def index(request):
     case_produttrici = Casa.objects.all().values_list('nome', flat=True)
@@ -22,6 +25,7 @@ def contacts(request):
 
 def product_show(request, product_id):
     prodotto = Prodotto.objects.get(pk=product_id)
+    logger.info(''.join(['showing ', prodotto.nome]))
     context = {
         'response': prodotto
     }
@@ -47,6 +51,8 @@ def product_create(request, template_name='product_form.html'):
     form = ProductForm(request.POST or None)
     if form.is_valid():
         form.save()
+        logger.info(''.join([form.cleaned_data['nome'],
+                             ' has been inserted']))
         return redirect('products')
     return render(request, template_name, {'form':form})
 
@@ -57,6 +63,8 @@ def product_update(request, product_id, template_name='product_form.html'):
     form = ProductForm(request.POST or None, instance=product)
     if form.is_valid():
         form.save()
+        logger.info(''.join([form.cleaned_data['nome'],
+                             ' has been modified']))
         return redirect('products')
     return render(request, template_name, {'form':form})
 
@@ -66,5 +74,6 @@ def product_delete(request, product_id, template_name='product_confirm_delete.ht
     product = get_object_or_404(Prodotto, pk=product_id)
     if request.method=='POST':
         product.delete()
+        logger.info(''.join([product.nome, ' has been deleted']))
         return redirect('products')
     return render(request, template_name, {'object':product})

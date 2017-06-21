@@ -1,6 +1,6 @@
 # Tutorial Django per il sito allafinedelpalo.it
 
-Il repository contiene un semplice esempio di applicazione web creata utilizzando il framework python Django
+Il repository contiene un semplice esempio di applicazione web creata utilizzando il framework python Django.
 
 ## Inizializzazione
 
@@ -14,7 +14,7 @@ pip install -U -r requirements.txt
 python ./manage.py makemigrations
 python ./manage.py migrate
 ```
-3) per popolare il database, è stato aggiunto un file JSON di fixture nella cartella 'ecommerce'
+3) per popolare il database, è stato aggiunto un file JSON di fixture nella cartella 'ecommerce'. 
 Digitate il comando:
 ```
 python ./manage.py loaddata ./ecommerce/fixtures/init_fixture.json
@@ -40,6 +40,7 @@ Prodotto.objects.create(nome='PlayStation', prezzo=349.99, dimensione='M', casa=
 ```
 python manage.py createsuperuser
 ```
+con questo utente potete loggarvi da /login/ e da /admin/ (per il pannello di controllo)
 
 ## Articoli di riferimento
 
@@ -51,8 +52,6 @@ Parte 2: http://www.allafinedelpalo.it/python-django-2-view-e-template/
 
 Parte 3: http://www.allafinedelpalo.it/python-django-3-amministrazione-e-gestione-utentii/
 
-Parte 4: coming soon...
+Parte 4: http://www.allafinedelpalo.it/python-django-4-logging/
 
 Parte 5: coming soon...
-
-
