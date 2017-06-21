@@ -1,11 +1,11 @@
 from __future__ import unicode_literals
 
-import datetime
+from django.utils import timezone
 from django.db import models
 
 class GenericObject(models.Model):
-    created_at = models.DateTimeField(default=datetime.datetime.now)
-    updated_at = models.DateTimeField(default=datetime.datetime.now)
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(default=timezone.now)
 
     class Meta:
         abstract = True
