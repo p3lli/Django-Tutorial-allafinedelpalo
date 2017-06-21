@@ -14,11 +14,16 @@ pip install -U -r requirements.txt
 python ./manage.py makemigrations
 python ./manage.py migrate
 ```
-3) per popolare il database
+3) per popolare il database, è stato aggiunto un file JSON di fixture nella cartella 'ecommerce'
+Digitate il comando:
+```
+python ./manage.py loaddata ./ecommerce/fixtures/init_fixture.json
+```
+Se non dovesse andare a buon fine il caricamento, digitate:
 ```
 python ./manage.py shell
 ```
-una volta aperta la shell, digitate i seguenti comandi python:
+una volta aperta la shell, digitate i seguenti comandi python per popolare le tabelle:
 ```
 from ecommerce.models import Prodotto, Casa
 Casa.objects.create(nome='Sony', email='info@sony.com')

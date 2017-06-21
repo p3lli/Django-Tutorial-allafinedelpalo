@@ -1,0 +1,58 @@
+[
+  {
+    "model": "ecommerce.casa",
+    "pk": 1,
+    "fields": {
+      "nome": "Sony",
+      "email": "info@sony.com"
+    }
+  },
+  {
+    "model": "ecommerce.casa",
+    "pk": 2,
+    "fields": {
+      "nome": "Nintendo",
+      "email": "info@nitendo.com"
+    }
+  },
+  {
+    "model": "ecommerce.prodotto",
+    "pk": 1,
+    "fields": {
+      "nome": "GameBoy",
+      "prezzo": 150.00,
+      "dimensione": "P",
+      "casa": 2
+    }
+  },
+  {
+    "model": "ecommerce.prodotto",
+    "pk": 2,
+    "fields": {
+      "nome": "SNES",
+      "prezzo": 249.99,
+      "dimensione": "M",
+      "casa": 2
+    }
+  },
+  {
+    "model": "ecommerce.prodotto",
+    "pk": 3,
+    "fields": {
+      "nome": "PSP",
+      "prezzo": 170.00,
+      "dimensione": "P",
+      "casa": 1
+    }
+  },
+  {
+    "model": "ecommerce.prodotto",
+    "pk": 4,
+    "fields": {
+      "nome": "PlayStation",
+      "prezzo": 349.99,
+      "dimensione": "M",
+      "casa": 1
+    }
+  }
+]
