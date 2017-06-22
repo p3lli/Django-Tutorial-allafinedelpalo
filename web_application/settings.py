@@ -138,8 +138,12 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
     'formatters': {
+        'verbose': {
+            'format': '[%(asctime)s] %(levelname)s [%(pathname)s:%(lineno)s] %(message)s',
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
         'standard': {
-            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'format' : "[%(asctime)s] %(levelname)s %(message)s",
             'datefmt' : "%d/%b/%Y %H:%M:%S"
         },
     },
@@ -151,10 +155,10 @@ LOGGING = {
         'logfile': {
             'level':'INFO',
             'class':'logging.handlers.RotatingFileHandler',
-            'filename': PROJECT_PATH + "/logs/ecommerce.log",
+            'filename': PROJECT_PATH + "/log/ecommerce.log",
             'maxBytes': 50000,
             'backupCount': 2,
-            'formatter': 'standard',
+            'formatter': 'verbose',
         },
         'console':{
             'level':'INFO',

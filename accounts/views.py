@@ -35,6 +35,7 @@ def register_view(request):
         user.set_password(password)
         user.save()
         new_user = authenticate(username=user.username, password=user.password)
+        logger.info(''.join([username, ' has been registered']))
         login(request, new_user)
         if next:
             return redirect(next)
